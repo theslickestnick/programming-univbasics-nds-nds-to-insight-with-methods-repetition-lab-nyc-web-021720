@@ -20,7 +20,6 @@ def gross_for_director(d)
     total += d[:movies][index][:worldwide_gross]
     index += 1
   end
-
   total
 end
 
@@ -44,4 +43,12 @@ def total_gross(source)
   # Visit each key (i.e. director name), look up the value in the hash
   # returned by directors_totals, and add it to a running total. When done,
   # return the total
+def total_gross(source)
+  total = 0
+  index = 0
+    while index < list_of_directors(source).size
+      total += directors_totals(source)[list_of_directors(source)[index]]
+      index += 1
+    end
+  total
 end
